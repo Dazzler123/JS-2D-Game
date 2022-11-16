@@ -1,4 +1,5 @@
 var ninja = document.getElementById("character");
+var ninjaMarginTop = 53.5;
 var idleImageNum = 0;
 var idleAnimationIndex = 0
 
@@ -7,6 +8,9 @@ var runAnimationIndex = 0;
 
 var bckgrndPositionX = 0;
 var moveBckgrndAnimationIndex = 0;
+
+var jumpImageNum = 0;
+var jumpAnimationIndex = 0;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
@@ -58,12 +62,60 @@ function keyCheck(event) {
         }
     }
 
-    if (moveBckgrndAnimationIndex == 0) {
+    if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
         moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+    }
+
+    if (keyCode == 32) {
+        if (jumpAnimationIndex == 0) {
+            jumpAnimationStart();
+        }
+        if (moveBckgrndAnimationIndex == 0) {
+            moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+        }
     }
 }
 
 function moveBackground() {
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
+}
+
+
+// character jumping animation
+function jumpAnimation() {
+    //move ninja up
+    if (jumpImageNum <= 5) {
+        ninjaMarginTop = ninjaMarginTop - 3;
+        ninja.style.marginTop = ninjaMarginTop + "vh";
+    }
+
+    //move ninja down
+    if (jumpImageNum >= 6) {
+        ninjaMarginTop = ninjaMarginTop + 3;
+        ninja.style.marginTop = ninjaMarginTop + "vh";
+    }
+
+    // after all jumping images are loaded
+    if (jumpImageNum == 10) {
+        jumpImageNum = 0;
+        //stop jump effect
+        clearInterval(jumpAnimationIndex);
+        jumpAnimationIndex = 0;
+        runAnimationIndex = 0;
+        //start running again
+        runAnimationStart();
+    }
+    //set image
+    ninja.src = "assets/images/characters/Jump" + jumpImageNum + ".png";
+
+    // to next running image
+    jumpImageNum++;
+}
+
+function jumpAnimationStart() {
+    // clearInterval(idleImageNum);
+    // runAnimationIndex = 0;
+    clearInterval(runAnimationIndex);
+    jumpAnimationIndex = setInterval(jumpAnimation, 100);
 }
