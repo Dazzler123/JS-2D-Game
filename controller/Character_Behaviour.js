@@ -1,8 +1,12 @@
 var ninja = document.getElementById("character");
 var idleImageNum = 0;
 var idleAnimationIndex = 0
+
 var runImageNum = 0;
 var runAnimationIndex = 0;
+
+var bckgrndPositionX = 0;
+var moveBckgrndAnimationIndex = 0;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
@@ -54,4 +58,12 @@ function keyCheck(event) {
         }
     }
 
+    if (moveBckgrndAnimationIndex == 0) {
+        moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+    }
+}
+
+function moveBackground() {
+    bckgrndPositionX = bckgrndPositionX - 20;
+    document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
 }

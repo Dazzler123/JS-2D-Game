@@ -4,12 +4,13 @@
 
     background-image: url("../images/background.jpg");
     background-size: cover;
-    background-position: center;
+    /*background-position: center;*/
+    background-repeat: repeat-x;
 }
 
 /*character*/
 #character {
     height: 30%;
-    margin-top: 42.4vh;
+    margin-top: 53.5vh;
     margin-left: 4vw;
 }
