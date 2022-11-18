@@ -119,3 +119,8 @@ function jumpAnimationStart() {
     clearInterval(runAnimationIndex);
     jumpAnimationIndex = setInterval(jumpAnimation, 100);
 }
+
+// adding a wolf as an barrier
+function createWolfBarrier() {
+    document.createElement("div")
+}
