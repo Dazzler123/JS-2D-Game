@@ -14,6 +14,8 @@ var jumpAnimationIndex = 0;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
+//add wolf barrier at game startup
+$('#game_container').onload = createWolfBarrier();
 
 function idleAnimation() {
     // after all idle images are loaded
@@ -122,5 +124,9 @@ function jumpAnimationStart() {
 
 // adding a wolf as an barrier
 function createWolfBarrier() {
-    document.createElement("div")
+    console.log("here");
+    var wolf = document.createElement("div");
+    wolf.className = "wolf";
+    //add to background
+    $('#background').append(wolf);
 }

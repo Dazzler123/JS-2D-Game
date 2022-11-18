@@ -14,3 +14,12 @@
     margin-top: 53.5vh;
     margin-left: 4vw;
 }
+
+/*wolf barrier*/
+.wolf {
+    width: 10vw;
+    height: 10vh;
+    background-color: red;
+    position: absolute;
+    margin-top:73.5vh;
+}
