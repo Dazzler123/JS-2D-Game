@@ -13,7 +13,8 @@ var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
 //wolf barrier margin left
-var wolfDivMarginLeft = 10;
+var wolfDivMarginLeft = 100;
+var wolfAnimationIndex = 0;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
@@ -38,7 +39,6 @@ function idleAnimationStart() {
     idleAnimationIndex = setInterval(idleAnimation, 150);
 }
 
-
 // character running animation
 function runAnimation() {
     // after all running images are loaded
@@ -58,8 +58,8 @@ function runAnimationStart() {
     clearInterval(idleAnimationIndex);
 }
 
+//when keys are pressed
 function keyCheck(event) {
-    // enter = 13;
     var keyCode = event.which;
 
     //if enter key is pressed
@@ -67,10 +67,16 @@ function keyCheck(event) {
         if (runImageNum == 0) {
             runAnimationStart();
         }
+        //start wolf running animation
+        if (wolfAnimationIndex == 0) {
+            wolfAnimationIndex = setInterval(wolfAnimation, 100);
+        }
     }
+
     if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
         moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
     }
+
     if (keyCode == 32) {
         if (jumpAnimationIndex == 0) {
             jumpAnimationStart();
@@ -78,6 +84,13 @@ function keyCheck(event) {
         if (moveBckgrndAnimationIndex == 0) {
             moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
         }
+    }
+    if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
+        moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+    }
+    //start wolf running animation
+    if (wolfAnimationIndex == 0) {
+        wolfAnimationIndex = setInterval(wolfAnimation, 100);
     }
 }
 
@@ -134,6 +147,7 @@ function createWolfBarrier() {
         //add to background
         $('#background').append(wolf);
         wolf.style.marginLeft = wolfDivMarginLeft + "vw";
+        wolfDivMarginLeft.id = "wolf" + i;
 
         //add a space of 50vw between first 5 present wolf divs
         if (i < 5) {
@@ -145,3 +159,18 @@ function createWolfBarrier() {
         }
     }
 }
+
+//wolf running towards the game character animation
+function wolfAnimation() {
+    for (var i = 0; i < 10; i++) {
+        //get current wolf
+        var currentWolfDiv = document.getElementById("wolf" + i);
+        console.log(currentWolfDiv);
+        var currentMarginLeft = getComputedStyle(currentWolfDiv).marginLeft;
+
+        var newMarginLeft = parseInt(currentMarginLeft) - 25;
+        //set new margin left
+        currentWolfDiv.style.marginleft = newMarginLeft + "vw";
+    }
+}
+
