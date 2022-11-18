@@ -12,6 +12,8 @@ var moveBckgrndAnimationIndex = 0;
 var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
+var wolfDivMarginLeft = 50;
+
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
 //add wolf barrier at game startup
@@ -100,6 +102,8 @@ function jumpAnimation() {
 
     // after all jumping images are loaded
     if (jumpImageNum == 10) {
+        //back to default character margin top
+        ninja.style.marginTop = 53.5 + "vh";
         jumpImageNum = 0;
         //stop jump effect
         clearInterval(jumpAnimationIndex);
@@ -124,9 +128,24 @@ function jumpAnimationStart() {
 
 // adding a wolf as an barrier
 function createWolfBarrier() {
-    console.log("here");
-    var wolf = document.createElement("div");
-    wolf.className = "wolf";
-    //add to background
-    $('#background').append(wolf);
+
+    for (var i = 0; i <= 10; i++) {
+        var wolf = document.createElement("div");
+        wolf.className = "wolf";
+        //add to background
+        $('#background').append(wolf);
+        wolf.style.marginLeft = wolfDivMarginLeft + "vw";
+
+        //add a space of 50vw between first 5 present wolf divs
+        if (i < 5) {
+            wolfDivMarginLeft = wolfDivMarginLeft + 50;
+        }
+
+        //add a space of 30vw between last 5 wolf divs
+        if (i >= 5) {
+            wolfDivMarginLeft = wolfDivMarginLeft + 30;
+        }
+    }
+
+
 }
