@@ -12,8 +12,8 @@ var moveBckgrndAnimationIndex = 0;
 var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
-//wolf barrier margin left
-var wolfDivMarginLeft = 100;
+//wolf barrier
+var wolfDivMarginLeft = 1040;
 var wolfAnimationIndex = 0;
 
 //start idle animation on load
@@ -85,6 +85,7 @@ function keyCheck(event) {
             moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
         }
     }
+
     if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
         moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
     }
@@ -146,16 +147,17 @@ function createWolfBarrier() {
         wolf.className = "wolf";
         //add to background
         $('#background').append(wolf);
-        wolf.style.marginLeft = wolfDivMarginLeft + "vw";
-        wolfDivMarginLeft.id = "wolf" + i;
+        wolf.style.marginLeft = wolfDivMarginLeft + "px";
+        //set an unique id
+        wolf.id = "wolf" + i;
 
         //add a space of 50vw between first 5 present wolf divs
         if (i < 5) {
-            wolfDivMarginLeft = wolfDivMarginLeft + 50;
+            wolfDivMarginLeft = wolfDivMarginLeft + 1000;
         }
         //add a space of 30vw between last 5 wolf divs
         if (i >= 5) {
-            wolfDivMarginLeft = wolfDivMarginLeft + 30;
+            wolfDivMarginLeft = wolfDivMarginLeft + 500;
         }
     }
 }
@@ -165,12 +167,11 @@ function wolfAnimation() {
     for (var i = 0; i < 10; i++) {
         //get current wolf
         var currentWolfDiv = document.getElementById("wolf" + i);
-        console.log(currentWolfDiv);
         var currentMarginLeft = getComputedStyle(currentWolfDiv).marginLeft;
-
+        //reduce margin left
         var newMarginLeft = parseInt(currentMarginLeft) - 25;
         //set new margin left
-        currentWolfDiv.style.marginleft = newMarginLeft + "vw";
+        currentWolfDiv.style.marginleft = newMarginLeft + "px";
     }
 }
 
