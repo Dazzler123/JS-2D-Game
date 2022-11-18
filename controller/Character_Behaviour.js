@@ -12,12 +12,15 @@ var moveBckgrndAnimationIndex = 0;
 var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
-var wolfDivMarginLeft = 50;
+//wolf barrier margin left
+var wolfDivMarginLeft = 200;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
+
+// ========================================================================
 
 function idleAnimation() {
     // after all idle images are loaded
@@ -65,11 +68,9 @@ function keyCheck(event) {
             runAnimationStart();
         }
     }
-
     if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
         moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
     }
-
     if (keyCode == 32) {
         if (jumpAnimationIndex == 0) {
             jumpAnimationStart();
@@ -93,7 +94,6 @@ function jumpAnimation() {
         ninjaMarginTop = ninjaMarginTop - 3;
         ninja.style.marginTop = ninjaMarginTop + "vh";
     }
-
     //move ninja down
     if (jumpImageNum >= 6) {
         ninjaMarginTop = ninjaMarginTop + 3;
@@ -128,7 +128,6 @@ function jumpAnimationStart() {
 
 // adding a wolf as an barrier
 function createWolfBarrier() {
-
     for (var i = 0; i <= 10; i++) {
         var wolf = document.createElement("div");
         wolf.className = "wolf";
@@ -140,12 +139,9 @@ function createWolfBarrier() {
         if (i < 5) {
             wolfDivMarginLeft = wolfDivMarginLeft + 50;
         }
-
         //add a space of 30vw between last 5 wolf divs
         if (i >= 5) {
             wolfDivMarginLeft = wolfDivMarginLeft + 30;
         }
     }
-
-
 }
