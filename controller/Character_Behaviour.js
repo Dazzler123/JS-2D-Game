@@ -13,7 +13,7 @@ var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
 //wolf barrier margin left
-var wolfDivMarginLeft = 200;
+var wolfDivMarginLeft = 10;
 
 //start idle animation on load
 $('#game_container').onload = idleAnimationStart();

@@ -17,9 +17,12 @@
 
 /*wolf barrier*/
 .wolf {
-    width: 10vw;
-    height: 10vh;
-    background-color: red;
+    width: 25vw;
+    height: 15vh;
     position: absolute;
-    margin-top:73.5vh;
+    margin-top: 69vh;
+
+    background-image: url("../images/barriers/wolf-barrier-land.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
