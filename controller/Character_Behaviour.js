@@ -13,7 +13,7 @@ var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
 //wolf barrier
-var wolfDivMarginLeft = 1040;
+var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
 //start idle animation on load
