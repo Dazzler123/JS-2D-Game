@@ -14,6 +14,9 @@ var moveBckgrndAnimationIndex = 0;
 var jumpImageNum = 0;
 var jumpAnimationIndex = 0;
 
+var deadImageNum = 1;
+var deadAnimationIndex = 0;
+
 //wolf barrier
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
@@ -185,22 +188,41 @@ function wolfAnimation() {
         currentWolfDiv.style.marginLeft = newMarginLeft.toString() + "px"
 
         //stop all when both collides
-        if (newMarginLeft <= 145 & newMarginLeft >= -200) {
+        if (newMarginLeft <= 150 & newMarginLeft >= -250) {
             if (ninjaMarginTop > 47) {
-                console.log("awa!")
+                //stop wolf running animation
                 clearInterval(wolfAnimationIndex);
 
+                //stop ninja running animation
                 clearInterval(runAnimationIndex);
                 runAnimationIndex = -1;
 
+                //stop ninja jumping animation
                 clearInterval(jumpAnimationIndex);
                 jumpAnimationIndex = -1;
 
+                //stop background moving animation
                 clearInterval(moveBckgrndAnimationIndex);
                 moveBckgrndAnimationIndex = -1;
+
+                //run dead animation
+                deadAnimationIndex = setInterval(ninjaDeadAnimation, 100);
             }
         }
     }
+}
+
+function ninjaDeadAnimation() {
+    deadImageNum = deadImageNum + 1;
+
+    if (deadImageNum == 9) {
+        //stop loop
+        clearInterval(deadAnimationIndex);
+        // //reset image
+        // deadImageNum = 0;
+    }
+    //set image
+    ninja.src = "assets/images/characters/Dead" + deadImageNum + ".png";
 }
 
 
