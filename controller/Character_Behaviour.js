@@ -1,5 +1,7 @@
 var ninja = document.getElementById("character");
 var ninjaMarginTop = 53.5;
+var ninjaMarginLeft = 4;
+
 var idleImageNum = 0;
 var idleAnimationIndex = 0
 
@@ -105,13 +107,22 @@ function moveBackground() {
 function jumpAnimation() {
     //move ninja up
     if (jumpImageNum <= 5) {
-        ninjaMarginTop = ninjaMarginTop - 3;
+        //reduce ninja's margin top by 5
+        ninjaMarginTop = ninjaMarginTop - 5;
+        //increase ninja's margin left by 2
+        ninjaMarginLeft = ninjaMarginLeft + 2;
+
         ninja.style.marginTop = ninjaMarginTop + "vh";
+        ninja.style.marginLeft = ninjaMarginLeft + "vh";
     }
     //move ninja down
     if (jumpImageNum >= 6) {
-        ninjaMarginTop = ninjaMarginTop + 3;
+        ninjaMarginTop = ninjaMarginTop + 5;
+        //reduce ninja's margin left by 2
+        ninjaMarginLeft = ninjaMarginLeft - 2;
+
         ninja.style.marginTop = ninjaMarginTop + "vh";
+        ninja.style.marginLeft = ninjaMarginLeft + "vh";
     }
 
     // after all jumping images are loaded
@@ -153,11 +164,11 @@ function createWolfBarrier() {
 
         //add a space of 50vw between first 5 present wolf divs
         if (i < 5) {
-            wolfDivMarginLeft = wolfDivMarginLeft + 1000;
+            wolfDivMarginLeft = wolfDivMarginLeft + 2000;
         }
         //add a space of 30vw between last 5 wolf divs
         if (i >= 5) {
-            wolfDivMarginLeft = wolfDivMarginLeft + 500;
+            wolfDivMarginLeft = wolfDivMarginLeft + 1000;
         }
     }
 }
@@ -169,9 +180,32 @@ function wolfAnimation() {
         var currentWolfDiv = document.getElementById("wolf" + i);
         var currentMarginLeft = getComputedStyle(currentWolfDiv).marginLeft;
         //reduce margin left
-        var newMarginLeft = parseInt(currentMarginLeft) - 40;
+        var newMarginLeft = parseInt(currentMarginLeft) - 35;
         //set new margin left (as a string)
         currentWolfDiv.style.marginLeft = newMarginLeft.toString() + "px"
+
+        //stop all when both collides
+        if (newMarginLeft <= 145 & newMarginLeft >= -200) {
+            if (ninjaMarginTop > 47) {
+                console.log("awa!")
+                clearInterval(wolfAnimationIndex);
+
+                clearInterval(runAnimationIndex);
+                runAnimationIndex = -1;
+
+                clearInterval(jumpAnimationIndex);
+                jumpAnimationIndex = -1;
+
+                clearInterval(moveBckgrndAnimationIndex);
+                moveBckgrndAnimationIndex = -1;
+            }
+        }
     }
 }
+
+
+
+
+
+
 
