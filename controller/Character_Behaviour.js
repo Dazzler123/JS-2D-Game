@@ -188,7 +188,7 @@ function wolfAnimation() {
         currentWolfDiv.style.marginLeft = newMarginLeft.toString() + "px"
 
         //stop all when both collides
-        if (newMarginLeft <= 150 & newMarginLeft >= -250) {
+        if (newMarginLeft <= 150 & newMarginLeft >= -84) {
             if (ninjaMarginTop > 47) {
                 //stop wolf running animation
                 clearInterval(wolfAnimationIndex);
