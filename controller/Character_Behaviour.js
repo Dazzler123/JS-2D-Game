@@ -168,13 +168,10 @@ function wolfAnimation() {
         //get current wolf
         var currentWolfDiv = document.getElementById("wolf" + i);
         var currentMarginLeft = getComputedStyle(currentWolfDiv).marginLeft;
-        console.log("Current margin-left -->" + currentMarginLeft);
         //reduce margin left
-        var newMarginLeft = parseInt(currentMarginLeft) - 25;
-        console.log("New margin-left -->" + newMarginLeft);
-        //set new margin left
+        var newMarginLeft = parseInt(currentMarginLeft) - 40;
+        //set new margin left (as a string)
         currentWolfDiv.style.marginLeft = newMarginLeft.toString() + "px"
-        console.log("New margin after set -->" + currentMarginLeft);
     }
 }
 
