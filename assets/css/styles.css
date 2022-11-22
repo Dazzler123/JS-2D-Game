@@ -30,13 +30,13 @@
 #score_icon {
     height: 20%;
     display: inline-block;
-    margin-top: -1.5%;
+    margin-top: -0.5%;
     margin-left: 1%;
 }
 
 /*game score*/
 #score {
     position: relative;
-    margin-top: 1.9%;
-    margin-left: 16%;
+    margin-top: 38px;
+    margin-left: 14%;
 }

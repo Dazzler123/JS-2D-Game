@@ -2,6 +2,10 @@ var ninja = document.getElementById("character");
 var ninjaMarginTop = 53.5;
 var ninjaMarginLeft = 4;
 
+//game score
+var score = 0;
+$('#score').text(score);
+
 var idleImageNum = 0;
 var idleAnimationIndex = 0
 
@@ -100,9 +104,14 @@ function keyCheck(event) {
     }
 }
 
+//move background image
 function moveBackground() {
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
+
+    //show game score
+    score = score + 1;
+    $('#score').text(score);
 }
 
 
