@@ -26,3 +26,17 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+#score_icon {
+    height: 20%;
+    display: inline-block;
+    margin-top: -1.5%;
+    margin-left: 1%;
+}
+
+/*game score*/
+#score {
+    position: relative;
+    margin-top: 1.9%;
+    margin-left: 16%;
+}
