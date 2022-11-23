@@ -9,9 +9,6 @@ $('#score').text(score);
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
-// $(window).on('load', function ()  {
-//     document.getElementById("bgm").play();
-// });
 //play background music
 document.getElementById("bgm").play();
 

@@ -48,11 +48,6 @@ function blink_text() {
 }
 enterCtrlBlink = setInterval(blink_text, 500);
 
-$('#btnStartGame').click(function () {
-    //play button click effect
-    buttonClickEffect();
-});
-
 function buttonClickEffect() {
     document.getElementById('click_effect').play();
 }
