@@ -34,6 +34,11 @@
     margin-left: 1%;
 }
 
+#level_Heading {
+    margin-top: 3vw;
+    margin-left: 45vw;
+}
+
 /*game score*/
 #score {
     position: relative;
