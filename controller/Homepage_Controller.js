@@ -5,9 +5,9 @@ $('#failed_game_end_container').css('visibility','hidden');
 
 $(window).on('load', function ()  {
     //hide game
-    $('#game_container').css('visibility','hidden');
+    $('#game_container').css('visibility', 'hidden');
     //play background music
-    document.getElementById("bgm").play();
+    // document.getElementById("bgm").play();
 });
 
 function buttonClickEffect() {
@@ -17,6 +17,9 @@ function buttonClickEffect() {
 $('#btnStartGame').click(function () {
     //play button click effect
     buttonClickEffect();
+    //hide homepage & show game
+    $('#home_container').css('visibility', 'hidden');
+    $('#game_container').css('visibility', 'visible');
 });
 
 $('#btnAbout').click(function () {
