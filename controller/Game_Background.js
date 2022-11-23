@@ -22,6 +22,15 @@ function moveBackground() {
     //show game score
     score = score + 1;
     $('#score').text(score);
+
+    //stop when game is ended
+    if (bckgrndPositionX <= -9220) {
+        console.log("Game Ended Successfully!");
+        //stop ongoing game
+        stopGame();
+        // start ninja's idle animation
+        idleAnimationStart();
+    }
 }
 
 
@@ -61,24 +70,28 @@ function wolfAnimation() {
         //stop all when both collides
         if (newMarginLeft <= 150 & newMarginLeft >= -84) {
             if (ninjaMarginTop > 47) {
-                //stop wolf running animation
-                clearInterval(wolfAnimationIndex);
-
-                //stop ninja running animation
-                clearInterval(runAnimationIndex);
-                runAnimationIndex = -1;
-
-                //stop ninja jumping animation
-                clearInterval(jumpAnimationIndex);
-                jumpAnimationIndex = -1;
-
-                //stop background moving animation
-                clearInterval(moveBckgrndAnimationIndex);
-                moveBckgrndAnimationIndex = -1;
-
+                //stop ongoing game
+                stopGame();
                 //run dead animation
                 deadAnimationIndex = setInterval(ninjaDeadAnimation, 100);
             }
         }
     }
+}
+
+function stopGame() {
+    //stop wolf running animation
+    clearInterval(wolfAnimationIndex);
+
+    //stop ninja running animation
+    clearInterval(runAnimationIndex);
+    runAnimationIndex = -1;
+
+    //stop ninja jumping animation
+    clearInterval(jumpAnimationIndex);
+    jumpAnimationIndex = -1;
+
+    //stop background moving animation
+    clearInterval(moveBckgrndAnimationIndex);
+    moveBckgrndAnimationIndex = -1;
 }
