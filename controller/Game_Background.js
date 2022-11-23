@@ -26,6 +26,7 @@ function moveBackground() {
     //stop when game is ended
     if (bckgrndPositionX <= -9220) {
         console.log("Game Ended Successfully!");
+        console.log("Your score : " + score);
         //stop ongoing game
         stopGame();
         // start ninja's idle animation
