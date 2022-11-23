@@ -65,3 +65,12 @@
 #owner_title {
     margin-top: 45%;
 }
+
+/*<!--success game end view-->*/
+#success_game_end_container {
+    background: red;
+    /*border: 2px solid red;*/
+    border-radius: 10%;
+    height: 70vh;
+    margin-top: 15vh;
+}
