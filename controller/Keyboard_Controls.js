@@ -47,3 +47,12 @@ function blink_text() {
     $('#enter_ctrl').fadeIn(100);
 }
 enterCtrlBlink = setInterval(blink_text, 500);
+
+$('#btnStartGame').click(function () {
+    //play button click effect
+    buttonClickEffect();
+});
+
+function buttonClickEffect() {
+    document.getElementById('click_effect').play();
+}

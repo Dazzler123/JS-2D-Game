@@ -71,10 +71,11 @@ function jumpAnimation() {
     //play jump up sound effect
     if (jumpImageNum == 1) {
         document.getElementById("jump_part_one_bgm").play();
+        //play character running sound effect
+        document.getElementById("run_bgm").onpause;
     }
     //move ninja down
     if (jumpImageNum >= 6) {
-
         ninjaMarginTop = ninjaMarginTop + 5;
         //reduce ninja's margin left by 2
         ninjaMarginLeft = ninjaMarginLeft - 2;
@@ -86,6 +87,8 @@ function jumpAnimation() {
     //play jump land sound effect
     if (jumpImageNum == 9) {
         document.getElementById("jump_part_two_bgm").play();
+        //play character running sound effect
+        document.getElementById("run_bgm").play();
     }
 
     // after all jumping images are loaded

@@ -12,6 +12,8 @@ var wolfAnimationIndex = 0;
 // $(window).on('load', function ()  {
 //     document.getElementById("bgm").play();
 // });
+//play background music
+document.getElementById("bgm").play();
 
 //hide success game end
 $('#success_game_end_container').css('visibility','hidden');
@@ -27,6 +29,9 @@ $('#game_container').onload = createWolfBarrier();
 function moveBackground() {
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
+
+    //play character running sound effect
+    document.getElementById("run_bgm").play();
 
     //show game score
     score = score + 1;
