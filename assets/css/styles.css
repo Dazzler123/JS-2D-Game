@@ -77,3 +77,15 @@
 .you_win {
     height: 50%;
 }
+
+/*<!--failed game end view-->*/
+#failed_game_end_container {
+    background: yellowgreen;
+    border-radius: 10%;
+    height: 73vh;
+    margin-top: 15vh;
+}
+
+.you_lose {
+    height: 60%;
+}
