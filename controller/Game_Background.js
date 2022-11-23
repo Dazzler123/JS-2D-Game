@@ -9,18 +9,17 @@ $('#score').text(score);
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
-//play background music
-document.getElementById("bgm").play();
-
-//hide success game end
-$('#success_game_end_container').css('visibility','hidden');
-//hide failed game end
-$('#failed_game_end_container').css('visibility','hidden');
-
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
 
 // ======================================================================
+
+//control instructions blink effect
+function blink_text() {
+    $('#enter_ctrl').fadeOut(100);
+    $('#enter_ctrl').fadeIn(100);
+}
+enterCtrlBlink = setInterval(blink_text, 500);
 
 //move background image
 function moveBackground() {

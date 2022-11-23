@@ -41,13 +41,3 @@ function keyCheck(event) {
     }
 }
 
-//control instructions blink effect
-function blink_text() {
-    $('#enter_ctrl').fadeOut(100);
-    $('#enter_ctrl').fadeIn(100);
-}
-enterCtrlBlink = setInterval(blink_text, 500);
-
-function buttonClickEffect() {
-    document.getElementById('click_effect').play();
-}
