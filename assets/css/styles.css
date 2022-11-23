@@ -1,3 +1,4 @@
+/*in game background*/
 #background {
     width: 100%;
     height: 100vh;
@@ -88,4 +89,20 @@
 
 .you_lose {
     height: 60%;
+}
+
+/*homepage background*/
+main:nth-child(1) > div:nth-child(1) {
+    width: 100%;
+    height: 100vh;
+
+    background-image: url("../images/homepage-bg-samurai.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/*homepage button controls*/
+main:nth-child(1) > div:nth-child(1) > div{
+    left: 56%;
+    top: 75%;
 }

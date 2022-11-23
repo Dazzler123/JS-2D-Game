@@ -12,7 +12,23 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body onkeydown="keyCheck(event)">
+<!--background music-->
+<audio src=""></audio>
+<!--homepage-->
+<main id="home_container" class="container-fluid row me-0 pe-0 ms-0 ps-0 overflow-hidden justify-content-center">
+    <!--background-->
+    <div class="position-relative overflow-hidden">
+        <!--logo icon-->
+        <img src="assets/images/ninja-run-logo.png" class="h-75 position-absolute" style="left: 50%" alt="ninja_run_logo">
+        <!--buttons-->
+        <div class="d-grid gap-2 mb-5 col-3 position-absolute">
+            <button id="btnStartGame" type="button" class="btn col-12 btn-outline-primary btn-lg">Start Game</button>
+            <button id="btnAbout" type="button" class="btn col-12 btn-outline-secondary btn-lg">About</button>
+        </div>
+    </div>
+</main>
 
+<!--in game-->
 <main id="game_container" class="container-fluid row me-0 pe-0 ms-0 ps-0 overflow-hidden justify-content-center">
     <!--background-->
     <div id="background" class="position-relative overflow-hidden">
