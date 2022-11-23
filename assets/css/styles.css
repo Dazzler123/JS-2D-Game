@@ -68,9 +68,12 @@
 
 /*<!--success game end view-->*/
 #success_game_end_container {
-    background: red;
-    /*border: 2px solid red;*/
+    background: yellowgreen;
     border-radius: 10%;
     height: 70vh;
     margin-top: 15vh;
+}
+
+.you_win {
+    height: 50%;
 }
