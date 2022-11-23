@@ -41,6 +41,12 @@
     margin-left: 14%;
 }
 
+/*control instructions*/
+#enter_ctrl {
+    margin-top: 23vw;
+    margin-left: 36.5vw;
+}
+
 #space_ctrl {
     margin-top: 42%;
     margin-left: 82%;
