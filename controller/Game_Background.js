@@ -9,6 +9,9 @@ $('#score').text(score);
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
+//hide success game end
+$('#success_game_end_container').css('visibility','hidden');
+
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
 
@@ -29,11 +32,12 @@ function moveBackground() {
         console.log("Your score : " + score);
         //stop ongoing game
         stopGame();
+        //show success game end
+        setSuccessEndGame(score);
         // start ninja's idle animation
         idleAnimationStart();
     }
 }
-
 
 // adding a wolf as an barrier
 function createWolfBarrier() {
@@ -95,4 +99,10 @@ function stopGame() {
     //stop background moving animation
     clearInterval(moveBckgrndAnimationIndex);
     moveBckgrndAnimationIndex = -1;
+}
+
+function setSuccessEndGame() {
+    $('#success_game_end_container').css('visibility','visible');
+    // set score
+    $('#success_score').text("Your score : " + score);
 }
