@@ -128,6 +128,11 @@ function ninjaDeadAnimation() {
     }
     //set image
     ninja.src = "assets/images/characters/Dead" + deadImageNum + ".png";
+
+    //play dead sound effect
+    if (deadImageNum == 2) {
+        document.getElementById('dead_effect').play();
+    }
 }
 
 
