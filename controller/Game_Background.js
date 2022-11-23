@@ -81,6 +81,10 @@ function wolfAnimation() {
                 stopGame();
                 //run dead animation
                 deadAnimationIndex = setInterval(ninjaDeadAnimation, 100);
+                //hide collided wolf
+                currentWolfDiv.style.visibility = "hidden";
+                //show failed end game
+                setFailedEndGame();
             }
         }
     }
@@ -110,7 +114,7 @@ function setSuccessEndGame() {
 }
 
 function setFailedEndGame() {
-    $('#failed_game_end_container').css('visibility','hidden');
+    $('#failed_game_end_container').css('visibility','visible');
     // set score
     $('#failed_score').text("Your score : " + score);
 }
