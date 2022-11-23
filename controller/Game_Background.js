@@ -114,6 +114,8 @@ function stopGame() {
 
 function setSuccessEndGame() {
     $('#success_game_end_container').css('visibility','visible');
+    //play sound effect
+    document.getElementById('game_won_effect').play();
     // set score
     $('#success_score').text("Your score : " + score);
 }
