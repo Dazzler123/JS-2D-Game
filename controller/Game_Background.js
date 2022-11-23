@@ -9,6 +9,10 @@ $('#score').text(score);
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
+// $(window).on('load', function ()  {
+//     document.getElementById("bgm").play();
+// });
+
 //hide success game end
 $('#success_game_end_container').css('visibility','hidden');
 //hide failed game end

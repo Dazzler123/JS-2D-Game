@@ -12,8 +12,7 @@
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body onkeydown="keyCheck(event)">
-<!--background music-->
-<audio src=""></audio>
+
 <!--homepage-->
 <main id="home_container" class="container-fluid row me-0 pe-0 ms-0 ps-0 overflow-hidden justify-content-center">
     <!--background-->
@@ -25,6 +24,8 @@
             <button id="btnStartGame" type="button" class="btn col-12 btn-outline-primary btn-lg">Start Game</button>
             <button id="btnAbout" type="button" class="btn col-12 btn-outline-secondary btn-lg">About</button>
         </div>
+        <!--ownership-title-->
+        <p class="position-absolute text-dark fw-light fs-6" style="margin-top: 45%; margin-left: 71.9%">@2022 Designed & Developed by Dasindu Hewagamage</p>
     </div>
 </main>
 
@@ -70,6 +71,17 @@
     </div>
 </main>
 
+<!--background music-->
+<audio id="bgm" >
+    <source src="assets/audio/bgm/jump-15984.mp3">
+</audio>
+<audio id="jump_part_one_bgm" >
+    <source src="assets/audio/bgm/gruntJump.wav">
+</audio>
+<audio id="jump_part_two_bgm" >
+    <source src="assets/audio/bgm/gruntJumpLand.wav">
+</audio>
+
 <!--=================================================================-->
 <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 <script src="assets/js/jquery-3.6.1.min.js"></script>
@@ -77,5 +89,9 @@
 <script src="controller/Character_Behaviour.js"></script>
 <script src="controller/Game_Background.js"></script>
 <script src="controller/Keyboard_Controls.js"></script>
+
+<script>
+    // $('#game_container').css('visibility','hidden');
+</script>
 </body>
 </html>

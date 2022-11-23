@@ -58,6 +58,7 @@ function runAnimationStart() {
 function jumpAnimation() {
     //move ninja up
     if (jumpImageNum <= 5) {
+
         //reduce ninja's margin top by 5
         ninjaMarginTop = ninjaMarginTop - 5;
         //increase ninja's margin left by 2
@@ -66,14 +67,25 @@ function jumpAnimation() {
         ninja.style.marginTop = ninjaMarginTop + "vh";
         ninja.style.marginLeft = ninjaMarginLeft + "vh";
     }
+
+    //play jump up sound effect
+    if (jumpImageNum == 1) {
+        document.getElementById("jump_part_one_bgm").play();
+    }
     //move ninja down
     if (jumpImageNum >= 6) {
+
         ninjaMarginTop = ninjaMarginTop + 5;
         //reduce ninja's margin left by 2
         ninjaMarginLeft = ninjaMarginLeft - 2;
 
         ninja.style.marginTop = ninjaMarginTop + "vh";
         ninja.style.marginLeft = ninjaMarginLeft + "vh";
+    }
+
+    //play jump land sound effect
+    if (jumpImageNum == 9) {
+        document.getElementById("jump_part_two_bgm").play();
     }
 
     // after all jumping images are loaded
