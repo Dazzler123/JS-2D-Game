@@ -11,6 +11,8 @@ var wolfAnimationIndex = 0;
 
 //hide success game end
 $('#success_game_end_container').css('visibility','hidden');
+//hide failed game end
+$('#failed_game_end_container').css('visibility','hidden');
 
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
@@ -105,4 +107,10 @@ function setSuccessEndGame() {
     $('#success_game_end_container').css('visibility','visible');
     // set score
     $('#success_score').text("Your score : " + score);
+}
+
+function setFailedEndGame() {
+    $('#failed_game_end_container').css('visibility','hidden');
+    // set score
+    $('#failed_score').text("Your score : " + score);
 }
