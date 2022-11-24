@@ -106,3 +106,16 @@ main:nth-child(1) > div:nth-child(1) > div{
     left: 56%;
     top: 75%;
 }
+
+/*about game container*/
+#about_container {
+    background: #2697b7;
+    height: 80vh;
+    display: inline-block;
+    border-radius: 1%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
