@@ -46,6 +46,9 @@ function runAnimation() {
 
     // to next running image
     runImageNum++;
+
+    //play running sound effect
+    runningEffect.play();
 }
 
 function runAnimationStart() {
@@ -58,7 +61,6 @@ function runAnimationStart() {
 function jumpAnimation() {
     //move ninja up
     if (jumpImageNum <= 5) {
-
         //reduce ninja's margin top by 5
         ninjaMarginTop = ninjaMarginTop - 5;
         //increase ninja's margin left by 2

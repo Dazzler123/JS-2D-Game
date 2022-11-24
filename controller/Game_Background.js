@@ -37,11 +37,9 @@ enterCtrlBlink = setInterval(blink_text, 500);
 
 //move background image
 function moveBackground() {
+    //reduce margin left
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
-
-    //play running sound effect
-    runningEffect.play();
 
     //show game score
     score = score + 1;
@@ -215,7 +213,6 @@ function removeWolfs() {
         $(currentWolfDiv).remove();
     }
 }
-
 
 function setSuccessEndGame() {
     $('#success_game_end_container').css('visibility', 'visible');
