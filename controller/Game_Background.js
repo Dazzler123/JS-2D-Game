@@ -131,12 +131,11 @@ function stopGame() {
 }
 
 $('#btnTryAgain').click(function () {
-    //hide success game end
-    $('#success_game_end_container').css('visibility', 'hidden');
-    //hide failed game end
-    $('#failed_game_end_container').css('visibility', 'hidden');
-    //new game
-    resetGame();
+    tryAgainGame();
+});
+
+$('#btnRetry').click(function () {
+    tryAgainGame();
 });
 
 $('#btnExitGameTwo').click(function () {
@@ -147,6 +146,14 @@ $('#btnExitGame').click(function () {
     exitGame();
 });
 
+function tryAgainGame() {
+    //hide success game end
+    $('#success_game_end_container').css('visibility', 'hidden');
+    //hide failed game end
+    $('#failed_game_end_container').css('visibility', 'hidden');
+    //new game
+    resetGame();
+}
 
 function exitGame() {
     // new game
