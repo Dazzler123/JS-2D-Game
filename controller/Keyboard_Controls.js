@@ -20,6 +20,12 @@ function keyCheck(event) {
         }
     }
 
+    //if escape is pressed
+    if (keyCode == 27) {
+        //exit from game to homepage
+        exitGame();
+    }
+
     if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
         moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
     }
@@ -28,17 +34,16 @@ function keyCheck(event) {
         if (jumpAnimationIndex == 0) {
             jumpAnimationStart();
         }
-        if (moveBckgrndAnimationIndex == 0) {
-            moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
-        }
+        // if (moveBckgrndAnimationIndex == 0) {
+        //     moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+        // }
     }
-
-    if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
-        moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
-    }
-    //start wolf running animation
-    if (wolfAnimationIndex == 0) {
-        wolfAnimationIndex = setInterval(wolfAnimation, 100);
-    }
+    // if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
+    //     moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+    // }
+    // //start wolf running animation
+    // if (wolfAnimationIndex == 0) {
+    //     wolfAnimationIndex = setInterval(wolfAnimation, 100);
+    // }
 }
 
