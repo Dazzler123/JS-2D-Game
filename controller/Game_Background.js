@@ -143,6 +143,11 @@ $('#btnExitGameTwo').click(function () {
     exitGame();
 });
 
+$('#btnExitGame').click(function () {
+    exitGame();
+});
+
+
 function exitGame() {
     // new game
     resetGame();
