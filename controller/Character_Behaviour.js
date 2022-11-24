@@ -70,9 +70,9 @@ function jumpAnimation() {
 
     //play jump up sound effect
     if (jumpImageNum == 1) {
-        document.getElementById("jump_part_one_bgm").play();
-        //play character running sound effect
-        document.getElementById("run_bgm").onpause;
+        jumpPartOne.play();
+        //pause character running sound effect
+        runningEffect.pause();
     }
     //move ninja down
     if (jumpImageNum >= 6) {
@@ -86,9 +86,9 @@ function jumpAnimation() {
 
     //play jump land sound effect
     if (jumpImageNum == 9) {
-        document.getElementById("jump_part_two_bgm").play();
+        jumpPartTwo.play();
         //play character running sound effect
-        document.getElementById("run_bgm").play();
+        runningEffect.play();
     }
 
     // after all jumping images are loaded
@@ -131,7 +131,7 @@ function ninjaDeadAnimation() {
 
     //play dead sound effect
     if (deadImageNum == 2) {
-        document.getElementById('dead_effect').play();
+        deadEffect.play();
     }
 }
 

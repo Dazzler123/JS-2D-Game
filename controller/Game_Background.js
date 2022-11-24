@@ -12,6 +12,19 @@ var wolfAnimationIndex = 0;
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
 
+//background music
+var bgm = document.getElementById("bgm");
+//ninja running sound effect
+var runningEffect = document.getElementById("run_bgm");
+//success game won sound effect
+var wonEffect = document.getElementById('game_won_effect');
+//ninja jumping sound effect part 1
+var jumpPartOne = document.getElementById("jump_part_one_bgm");
+//ninja jumping sound effect part 2
+var jumpPartTwo = document.getElementById("jump_part_two_bgm");
+//ninja dead sound effect
+var deadEffect = document.getElementById('dead_effect');
+
 // ======================================================================
 
 //control instructions blink effect
@@ -19,6 +32,7 @@ function blink_text() {
     $('#enter_ctrl').fadeOut(100);
     $('#enter_ctrl').fadeIn(100);
 }
+
 enterCtrlBlink = setInterval(blink_text, 500);
 
 //move background image
@@ -26,8 +40,8 @@ function moveBackground() {
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
 
-    //play character running sound effect
-    document.getElementById("run_bgm").play();
+    //play running sound effect
+    runningEffect.play();
 
     //show game score
     score = score + 1;
@@ -110,20 +124,23 @@ function stopGame() {
     //stop background moving animation
     clearInterval(moveBckgrndAnimationIndex);
     moveBckgrndAnimationIndex = -1;
+
+    //stop running sound effect
+    runningEffect.pause();
 }
 
 $('#btnTryAgain').click(function () {
     //hide success game end
-    $('#success_game_end_container').css('visibility','hidden');
+    $('#success_game_end_container').css('visibility', 'hidden');
     //hide failed game end
-    $('#failed_game_end_container').css('visibility','hidden');
+    $('#failed_game_end_container').css('visibility', 'hidden');
     resetGame();
 
     function resetGame() {
         //stop current process
         stopGame();
         //show titles
-        $('#enter_ctrl').css('visibility','visible');
+        $('#enter_ctrl').css('visibility', 'visible');
 
         score = 0;
         $('#score').text(score);
@@ -150,24 +167,24 @@ $('#btnTryAgain').click(function () {
         deadAnimationIndex = 0;
 
         //wolf barrier
-         wolfDivMarginLeft = 1850;
-         wolfAnimationIndex = 0;
+        wolfDivMarginLeft = 1850;
+        wolfAnimationIndex = 0;
 
         createWolfBarrier();
 
-            if (keyCode == 13) {
-                //hide enter ctrl title
-                $('#enter_ctrl').css('visibility','hidden');
+        if (keyCode == 13) {
+            //hide enter ctrl title
+            $('#enter_ctrl').css('visibility', 'hidden');
 
-                //start ninja running animation
-                if (runImageNum == 0) {
-                    runAnimationStart();
-                }
-                //start wolf running animation
-                if (wolfAnimationIndex == 0) {
-                    wolfAnimationIndex = setInterval(wolfAnimation, 100);
-                }
+            //start ninja running animation
+            if (runImageNum == 0) {
+                runAnimationStart();
             }
+            //start wolf running animation
+            if (wolfAnimationIndex == 0) {
+                wolfAnimationIndex = setInterval(wolfAnimation, 100);
+            }
+        }
 
         if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
             moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
@@ -201,15 +218,15 @@ function removeWolfs() {
 
 
 function setSuccessEndGame() {
-    $('#success_game_end_container').css('visibility','visible');
+    $('#success_game_end_container').css('visibility', 'visible');
     //play sound effect
-    document.getElementById('game_won_effect').play();
+    wonEffect.play();
     // set score
     $('#success_score').text("Your score : " + score);
 }
 
 function setFailedEndGame() {
-    $('#failed_game_end_container').css('visibility','visible');
+    $('#failed_game_end_container').css('visibility', 'visible');
     // set score
     $('#failed_score').text("Your score : " + score);
 }
