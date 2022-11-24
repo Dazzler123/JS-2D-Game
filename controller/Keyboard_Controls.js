@@ -1,8 +1,9 @@
 var enterCtrlBlink = 0;
+var keyCode;
 
 //when keys are pressed
 function keyCheck(event) {
-    var keyCode = event.which;
+    keyCode = event.which;
 
     //if enter key is pressed
     if (keyCode == 13) {

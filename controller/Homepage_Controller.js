@@ -20,6 +20,8 @@ $('#btnStartGame').click(function () {
     //hide homepage & show game
     $('#home_container').css('visibility', 'hidden');
     $('#game_container').css('visibility', 'visible');
+    //show titles
+    $('#enter_ctrl').css('visibility', 'visible');
 });
 
 $('#btnAbout').click(function () {
