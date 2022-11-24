@@ -7,7 +7,7 @@ function keyCheck(event) {
     //if enter key is pressed
     if (keyCode == 13) {
         //hide enter ctrl title
-        $('#enter_ctrl').remove();
+        $('#enter_ctrl').css('visibility','hidden');
 
         //start ninja running animation
         if (runImageNum == 0) {

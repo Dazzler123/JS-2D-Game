@@ -112,6 +112,94 @@ function stopGame() {
     moveBckgrndAnimationIndex = -1;
 }
 
+$('#btnTryAgain').click(function () {
+    //hide success game end
+    $('#success_game_end_container').css('visibility','hidden');
+    //hide failed game end
+    $('#failed_game_end_container').css('visibility','hidden');
+    resetGame();
+
+    function resetGame() {
+        //stop current process
+        stopGame();
+        //show titles
+        $('#enter_ctrl').css('visibility','visible');
+
+        score = 0;
+        $('#score').text(score);
+
+        // idleAnimationStart();
+
+        removeWolfs();
+
+        ninjaMarginLeft = 4;
+        runImageNum = 0;
+        bckgrndPositionX = 0;
+        moveBckgrndAnimationIndex = 0;
+
+        idleImageNum = 0;
+        idleAnimationIndex = 0
+
+        runImageNum = 0;
+        runAnimationIndex = 0;
+
+        jumpImageNum = 0;
+        jumpAnimationIndex = 0;
+
+        deadImageNum = 1;
+        deadAnimationIndex = 0;
+
+        //wolf barrier
+         wolfDivMarginLeft = 1850;
+         wolfAnimationIndex = 0;
+
+        createWolfBarrier();
+
+            if (keyCode == 13) {
+                //hide enter ctrl title
+                $('#enter_ctrl').css('visibility','hidden');
+
+                //start ninja running animation
+                if (runImageNum == 0) {
+                    runAnimationStart();
+                }
+                //start wolf running animation
+                if (wolfAnimationIndex == 0) {
+                    wolfAnimationIndex = setInterval(wolfAnimation, 100);
+                }
+            }
+
+        if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
+            moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+        }
+        if (keyCode == 32) {
+            if (jumpAnimationIndex == 0) {
+                jumpAnimationStart();
+            }
+            // if (moveBckgrndAnimationIndex == 0) {
+            //     moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+            // }
+        }
+
+        // if (moveBckgrndAnimationIndex == 0 & keyCode == 13) {
+        //     moveBckgrndAnimationIndex = setInterval(moveBackground, 100);
+        // }
+        // //start wolf running animation
+        // if (wolfAnimationIndex == 0) {
+        //     wolfAnimationIndex = setInterval(wolfAnimation, 100);
+        // }
+    }
+});
+
+function removeWolfs() {
+    for (var i = 0; i <= 10; i++) {
+        var currentWolfDiv = document.getElementById("wolf" + i);
+        //remove from background
+        $(currentWolfDiv).remove();
+    }
+}
+
+
 function setSuccessEndGame() {
     $('#success_game_end_container').css('visibility','visible');
     //play sound effect
