@@ -28,6 +28,18 @@
     background-repeat: no-repeat;
 }
 
+/*rock barrier*/
+.rock {
+    width: 25vw;
+    height: 20vh;
+    position: absolute;
+    margin-top: 67vh;
+
+    background-image: url("../images/barriers/rock-barrier-land.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 #score_icon {
     height: 20%;
     display: inline-block;

@@ -9,8 +9,14 @@ $('#score').text(score);
 var wolfDivMarginLeft = 1850;
 var wolfAnimationIndex = 0;
 
+// rock barrier
+var rockDivMarginLeft = 9500;
+var rockAnimationIndex = 0;
+
 //add wolf barrier at game startup
 $('#game_container').onload = createWolfBarrier();
+//add rock barrier at game startup
+$('#game_container').onload = createRockBarrier();
 
 //background music
 var bgm = document.getElementById("bgm");
@@ -41,21 +47,32 @@ function moveBackground() {
     bckgrndPositionX = bckgrndPositionX - 20;
     document.getElementById("background").style.backgroundPositionX = bckgrndPositionX + "px";
 
+    //reduce rock margin left
+    for (let i = 0; i <= 10; i++) {
+        //get current rock
+        var currentRockDiv = document.getElementById("rock" + i);
+        var tempWolfMarginLeft = getComputedStyle(currentRockDiv).marginLeft;
+        //reduce margin left
+        var newRockMarginLeft = parseInt(tempWolfMarginLeft) - 20;
+        //set new margin left (as a string)
+        currentRockDiv.style.marginLeft = newRockMarginLeft.toString() + "px"
+    }
+
     //show game score
     score = score + 1;
     $('#score').text(score);
 
-    //stop when game is ended
-    if (bckgrndPositionX <= -9220) {
-        console.log("Game Ended Successfully!");
-        console.log("Your score : " + score);
-        //stop ongoing game
-        stopGame();
-        //show success game end
-        setSuccessEndGame(score);
-        // start ninja's idle animation
-        idleAnimationStart();
-    }
+    // //stop when game is ended
+    // if (bckgrndPositionX <= -9220) {
+    //     console.log("Game Ended Successfully!");
+    //     console.log("Your score : " + score);
+    //     //stop ongoing game
+    //     stopGame();
+    //     //show success game end
+    //     setSuccessEndGame(score);
+    //     // start ninja's idle animation
+    //     idleAnimationStart();
+    // }
 }
 
 // adding a wolf as an barrier
@@ -76,6 +93,28 @@ function createWolfBarrier() {
         //add a space of 30vw between last 5 wolf divs
         if (i >= 5) {
             wolfDivMarginLeft = wolfDivMarginLeft + 1000;
+        }
+    }
+}
+
+// adding a rock as an barrier
+function createRockBarrier() {
+    for (var i = 0; i <= 10; i++) {
+        var rock = document.createElement("div");
+        rock.className = "rock";
+        //add to background
+        $('#background').append(rock);
+        rock.style.marginLeft = rockDivMarginLeft + "px";
+        //set an unique id
+        rock.id = "rock" + i;
+
+        //add a space of 50vw between first 5 present rock divs
+        if (i < 5) {
+            rockDivMarginLeft = rockDivMarginLeft + 1500;
+        }
+        //add a space of 30vw between last 5 rock divs
+        if (i >= 5) {
+            rockDivMarginLeft = rockDivMarginLeft + 700;
         }
     }
 }
@@ -104,8 +143,23 @@ function wolfAnimation() {
                 setFailedEndGame();
             }
         }
+
+        // //stop all when both collides (ninja & rock)
+        // if (rockDivMarginLeft <= 150 & rockDivMarginLeft >= -84) {
+        //     if (ninjaMarginTop > 47) {
+        //         //stop ongoing game
+        //         stopGame();
+        //         //run dead animation
+        //         deadAnimationIndex = setInterval(ninjaDeadAnimation, 100);
+        //         // //hide collided wolf
+        //         // currentWolfDiv.style.visibility = "hidden";
+        //         //show failed end game
+        //         setFailedEndGame();
+        //     }
+        // }
     }
 }
+
 
 function stopGame() {
     //stop wolf running animation
