@@ -1,4 +1,4 @@
-# ============= Ninja Run - 2D Game =============
+# ======= Ninja Run - 2D Game =======
 * A simple 2D game developed using HTML, CSS &amp; JavaScript.
 
 Developed under MVC architecture as an Single Page Application.
